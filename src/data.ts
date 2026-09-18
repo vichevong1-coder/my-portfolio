@@ -6,6 +6,8 @@ export const portfolioData = {
     email: "vichevong1@gmail.com",
     github: "https://github.com/vichevong1-coder",
     linkedin: "https://www.linkedin.com/in/viche-vong-001a84437",
+    telegram: "https://t.me/nharvichovong",
+    telegramUsername: "@nharvichovong",
   },
   projects: [
     {

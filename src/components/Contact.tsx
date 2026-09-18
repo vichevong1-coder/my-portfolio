@@ -38,6 +38,19 @@ function LinkedinIcon({ className = "w-5 h-5" }: { className?: string }) {
   );
 }
 
+function TelegramIcon({ className = "w-5 h-5" }: { className?: string }) {
+  return (
+    <svg
+      className={className}
+      viewBox="0 0 24 24"
+      fill="currentColor"
+      aria-hidden="true"
+    >
+      <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm4.64 6.8-1.74 8.21c-.13.58-.48.72-.97.45l-2.67-1.97-1.29 1.24c-.14.14-.26.26-.54.26l.19-2.73 4.97-4.49c.22-.19-.05-.3-.34-.11l-6.14 3.86-2.65-.83c-.58-.18-.59-.58.12-.86l10.35-3.99c.48-.18.9.11.75.83z" />
+    </svg>
+  );
+}
+
 export function Contact() {
   const { developer } = portfolioData;
 
@@ -122,19 +135,21 @@ export function Contact() {
       </div>
 
       {/* Direct CTA Box */}
-      <div className="p-8 sm:p-10 rounded-2xl bg-gradient-to-r from-blue-50 via-indigo-50 to-purple-50 dark:from-gray-900 dark:via-gray-900 dark:to-gray-900 border border-blue-100 dark:border-gray-800 text-center flex flex-col items-center">
+      <div className="p-8 sm:p-10 rounded-2xl bg-gradient-to-r from-sky-50 via-blue-50 to-indigo-50 dark:from-gray-900 dark:via-gray-900 dark:to-gray-900 border border-sky-100 dark:border-gray-800 text-center flex flex-col items-center">
         <h3 className="text-xl sm:text-2xl font-bold text-gray-900 dark:text-white mb-3">
-          Prefer to start with an email?
+          Prefer a quick chat?
         </h3>
         <p className="text-gray-600 dark:text-gray-400 max-w-md text-sm sm:text-base mb-6">
-          Drop me a line anytime. I typically reply within 24–48 hours.
+          Drop me a message on Telegram for the fastest response. I typically reply within a few hours.
         </p>
         <a
-          href={`mailto:${developer.email}`}
-          className="inline-flex items-center gap-2 px-6 py-3 rounded-xl font-semibold text-white bg-blue-600 hover:bg-blue-700 dark:bg-blue-600 dark:hover:bg-blue-500 shadow-md shadow-blue-500/20 transition-all hover:scale-105 active:scale-95"
+          href={developer.telegram}
+          target="_blank"
+          rel="noopener noreferrer"
+          className="inline-flex items-center gap-2 px-6 py-3 rounded-xl font-semibold text-white bg-sky-500 hover:bg-sky-600 dark:bg-sky-500 dark:hover:bg-sky-600 shadow-md shadow-sky-500/25 transition-all hover:scale-105 active:scale-95"
         >
-          <Send className="w-4 h-4" />
-          <span>Send Message ({developer.email})</span>
+          <TelegramIcon className="w-5 h-5" />
+          <span>Message on Telegram ({developer.telegramUsername})</span>
         </a>
       </div>
     </section>
