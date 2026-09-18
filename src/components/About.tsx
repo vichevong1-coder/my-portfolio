@@ -19,41 +19,41 @@ const skillCategories: SkillCategory[] = [
     title: "Frontend Engineering",
     icon: Layers,
     skills: [
-      "React",
-      "Next.js",
+      "Next.js & React 19",
       "TypeScript",
-      "Tailwind CSS",
-      "HTML5 / CSS3",
-      "Responsive Design",
-      "State Management",
-      "UI/UX Design",
+      "Tailwind CSS v4",
+      "TanStack Query",
+      "React Hook Form",
+      "Shadcn UI",
+      "Framer Motion",
+      "Vite & Turbopack",
     ],
   },
   {
-    title: "Backend & Systems",
+    title: "Backend & AI Systems",
     icon: Database,
     skills: [
-      "Node.js",
-      "Express",
-      "PostgreSQL",
-      "Prisma ORM",
+      "Java 21 & Spring Boot",
+      "FastAPI (Python)",
+      "PostgreSQL & Qdrant",
+      "Redis & WebSockets",
+      "Spring Security",
       "RESTful APIs",
-      "Authentication / OAuth",
-      "Serverless Functions",
-      "WebSockets",
+      "LangGraph",
+      "Microservices",
     ],
   },
   {
-    title: "Workflow & Tooling",
+    title: "Cloud & DevOps",
     icon: Terminal,
     skills: [
-      "Git & GitHub",
-      "Docker",
-      "Vercel Deployment",
+      "AWS",
+      "Docker & Nginx",
       "CI / CD Pipelines",
-      "Turbopack",
-      "Testing & Linting",
-      "Performance Tuning",
+      "Flyway Migrations",
+      "Testcontainers",
+      "Twilio API",
+      "Bucket4j (Rate Limiting)",
       "Linux / Bash",
     ],
   },
@@ -128,16 +128,21 @@ export function About() {
           {highlights.map((item) => (
             <div
               key={item.label}
-              className="p-6 rounded-2xl bg-gray-50/70 dark:bg-gray-900/60 border border-gray-200/80 dark:border-gray-800/80 transition-all hover:border-gray-300 dark:hover:border-gray-700 shadow-xs"
+              className="group relative p-6 rounded-2xl bg-white/60 dark:bg-gray-900/40 backdrop-blur-sm border border-gray-200/80 dark:border-white/5 hover:border-blue-200 dark:hover:border-pink-800/50 transition-all duration-300 hover:shadow-xl hover:shadow-blue-500/10 dark:hover:shadow-pink-500/10 hover:-translate-y-1 overflow-hidden"
             >
-              <div className="text-3xl font-extrabold bg-gradient-to-r from-blue-600 to-indigo-600 dark:from-blue-400 dark:to-indigo-400 bg-clip-text text-transparent">
-                {item.number}
-              </div>
-              <div className="font-semibold text-gray-900 dark:text-white mt-1 text-base">
-                {item.label}
-              </div>
-              <div className="text-sm text-gray-500 dark:text-gray-400 mt-0.5">
-                {item.detail}
+              {/* Hover Glow Effect */}
+              <div className="absolute inset-0 bg-gradient-to-br from-blue-500/0 to-indigo-500/0 group-hover:from-blue-500/5 group-hover:to-indigo-500/5 dark:from-pink-500/0 dark:to-fuchsia-500/0 dark:group-hover:from-pink-500/10 dark:group-hover:to-fuchsia-500/10 transition-all duration-500 pointer-events-none" />
+              
+              <div className="relative z-10">
+                <div className="text-3xl font-extrabold bg-gradient-to-r from-blue-600 to-indigo-600 dark:from-pink-400 dark:to-fuchsia-400 bg-clip-text text-transparent">
+                  {item.number}
+                </div>
+                <div className="font-semibold text-gray-900 dark:text-white mt-1 text-base group-hover:text-blue-700 dark:group-hover:text-pink-300 transition-colors">
+                  {item.label}
+                </div>
+                <div className="text-sm text-gray-500 dark:text-gray-400 mt-0.5">
+                  {item.detail}
+                </div>
               </div>
             </div>
           ))}
@@ -156,26 +161,31 @@ export function About() {
             return (
               <div
                 key={category.title}
-                className="p-6 rounded-2xl bg-white dark:bg-gray-900 border border-gray-200 dark:border-gray-800 shadow-sm hover:shadow-md transition-shadow"
+                className="group relative p-6 rounded-2xl bg-white/60 dark:bg-gray-900/40 backdrop-blur-sm border border-gray-200/80 dark:border-white/5 hover:border-blue-200 dark:hover:border-pink-800/50 transition-all duration-300 hover:shadow-xl hover:shadow-blue-500/10 dark:hover:shadow-pink-500/10 hover:-translate-y-1 overflow-hidden"
               >
-                <div className="flex items-center gap-3 mb-6">
-                  <div className="p-2.5 rounded-xl bg-blue-50 dark:bg-blue-950/60 text-blue-600 dark:text-blue-400 border border-blue-100 dark:border-blue-900/50">
-                    <Icon className="w-5 h-5" />
+                {/* Hover Glow Effect */}
+                <div className="absolute inset-0 bg-gradient-to-br from-blue-500/0 to-indigo-500/0 group-hover:from-blue-500/5 group-hover:to-indigo-500/5 dark:from-pink-500/0 dark:to-fuchsia-500/0 dark:group-hover:from-pink-500/10 dark:group-hover:to-fuchsia-500/10 transition-all duration-500 pointer-events-none" />
+                
+                <div className="relative z-10">
+                  <div className="flex items-center gap-3 mb-6">
+                    <div className="p-2.5 rounded-xl bg-blue-50 dark:bg-pink-900/30 text-blue-600 dark:text-pink-400 border border-blue-100 dark:border-pink-800/50 group-hover:scale-110 transition-transform duration-300">
+                      <Icon className="w-5 h-5" />
+                    </div>
+                    <h4 className="font-bold text-lg text-gray-900 dark:text-white group-hover:text-blue-700 dark:group-hover:text-pink-300 transition-colors">
+                      {category.title}
+                    </h4>
                   </div>
-                  <h4 className="font-bold text-lg text-gray-900 dark:text-white">
-                    {category.title}
-                  </h4>
-                </div>
 
-                <div className="flex flex-wrap gap-2">
-                  {category.skills.map((skill) => (
-                    <span
-                      key={skill}
-                      className="px-3 py-1.5 rounded-lg text-xs font-medium bg-gray-100 hover:bg-gray-200 dark:bg-gray-800/80 dark:hover:bg-gray-800 text-gray-800 dark:text-gray-200 border border-gray-200/50 dark:border-gray-700/50 transition-colors"
-                    >
-                      {skill}
-                    </span>
-                  ))}
+                  <div className="flex flex-wrap gap-2">
+                    {category.skills.map((skill) => (
+                      <span
+                        key={skill}
+                        className="px-3 py-1.5 rounded-lg text-xs font-semibold bg-blue-50 hover:bg-blue-100 text-blue-700 border border-blue-200/50 dark:bg-pink-950/40 dark:hover:bg-pink-900/60 dark:text-pink-300 dark:border-pink-800/40 transition-colors shadow-sm"
+                      >
+                        {skill}
+                      </span>
+                    ))}
+                  </div>
                 </div>
               </div>
             );

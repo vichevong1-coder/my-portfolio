@@ -20,12 +20,14 @@ export function Hero({
       {/* Background ambient lighting effects */}
       <div
         aria-hidden="true"
-        className="pointer-events-none absolute -top-24 left-1/2 -translate-x-1/2 w-[600px] h-[600px] bg-gradient-to-tr from-blue-500/15 via-indigo-500/10 to-purple-500/15 dark:from-blue-500/20 dark:via-indigo-500/15 dark:to-purple-500/20 rounded-full blur-3xl -z-10"
-      />
+        className="pointer-events-none absolute -top-24 left-1/2 -translate-x-1/2 w-[600px] h-[600px] bg-gradient-to-tr from-blue-400/30 via-indigo-400/20 to-cyan-400/30 dark:from-pink-500/20 dark:via-fuchsia-500/15 dark:to-pink-600/20 rounded-full blur-3xl -z-10 animate-[pulse_8s_ease-in-out_infinite]"
+      >
+        <div className="absolute inset-0 rounded-full bg-gradient-to-tr from-cyan-400/30 dark:from-pink-400/20 to-transparent blur-2xl mix-blend-overlay animate-[spin_12s_linear_infinite]" />
+      </div>
 
       <div className="max-w-4xl mx-auto text-center flex flex-col items-center z-10">
         {/* Availability Badge */}
-        <div className="inline-flex items-center gap-2.5 px-4 py-1.5 rounded-full text-xs sm:text-sm font-medium bg-blue-50 text-blue-700 dark:bg-blue-950/70 dark:text-blue-300 border border-blue-200/80 dark:border-blue-900/80 mb-8 shadow-xs">
+        <div className="inline-flex items-center gap-2.5 px-4 py-1.5 rounded-full text-xs sm:text-sm font-medium bg-blue-50 text-blue-700 dark:bg-pink-950/70 dark:text-pink-300 border border-blue-200/80 dark:border-pink-900/80 mb-8 shadow-xs">
           <span className="relative flex h-2 w-2">
             <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75" />
             <span className="relative inline-flex rounded-full h-2 w-2 bg-emerald-500" />
@@ -56,7 +58,7 @@ export function Hero({
         <div className="flex flex-col sm:flex-row items-center gap-4 w-full sm:w-auto">
           <a
             href="#projects"
-            className="group w-full sm:w-auto inline-flex items-center justify-center gap-2 px-7 py-3.5 rounded-xl font-semibold text-white bg-blue-600 hover:bg-blue-700 dark:bg-blue-600 dark:hover:bg-blue-500 shadow-lg shadow-blue-500/25 dark:shadow-blue-500/15 transition-all duration-200 hover:-translate-y-0.5 active:translate-y-0"
+            className="group w-full sm:w-auto inline-flex items-center justify-center gap-2 px-7 py-3.5 rounded-xl font-semibold text-white bg-blue-600 hover:bg-blue-700 dark:bg-pink-600 dark:hover:bg-pink-500 shadow-lg shadow-blue-500/25 dark:shadow-pink-500/25 transition-all duration-200 hover:-translate-y-0.5 active:translate-y-0"
           >
             <FolderGit2 className="w-5 h-5 transition-transform group-hover:scale-110" />
             <span>Explore Projects</span>

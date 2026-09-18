@@ -108,11 +108,11 @@ export function Contact() {
               href={method.href}
               target={method.isExternal ? "_blank" : undefined}
               rel={method.isExternal ? "noopener noreferrer" : undefined}
-              className="group flex flex-col justify-between p-6 rounded-2xl bg-white dark:bg-gray-900 border border-gray-200 dark:border-gray-800 shadow-sm hover:border-blue-500/50 dark:hover:border-blue-500/50 hover:shadow-md transition-all duration-200 hover:-translate-y-0.5"
+              className="group flex flex-col justify-between p-6 rounded-2xl bg-white dark:bg-gray-900 border border-gray-200 dark:border-gray-800 shadow-sm hover:border-blue-500/50 dark:hover:border-pink-500/50 hover:shadow-md transition-all duration-200 hover:-translate-y-0.5"
             >
               <div>
                 <div className="flex items-center justify-between mb-4">
-                  <div className="p-3 rounded-xl bg-gray-100 dark:bg-gray-800 text-gray-800 dark:text-gray-200 group-hover:bg-blue-50 dark:group-hover:bg-blue-950/50 group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors">
+                  <div className="p-3 rounded-xl bg-gray-100 dark:bg-gray-800 text-gray-800 dark:text-gray-200 group-hover:bg-blue-50 dark:group-hover:bg-pink-950/50 group-hover:text-blue-600 dark:group-hover:text-pink-400 transition-colors">
                     {Icon && <Icon className="w-5 h-5" />}
                     {CustomIcon && <CustomIcon className="w-5 h-5" />}
                   </div>
@@ -126,7 +126,7 @@ export function Contact() {
                 </p>
               </div>
 
-              <div className="text-sm font-medium text-blue-600 dark:text-blue-400 truncate group-hover:underline">
+              <div className="text-sm font-medium text-blue-600 dark:text-pink-400 truncate group-hover:underline">
                 {method.value}
               </div>
             </a>
@@ -135,7 +135,7 @@ export function Contact() {
       </div>
 
       {/* Direct CTA Box */}
-      <div className="p-8 sm:p-10 rounded-2xl bg-gradient-to-r from-sky-50 via-blue-50 to-indigo-50 dark:from-gray-900 dark:via-gray-900 dark:to-gray-900 border border-sky-100 dark:border-gray-800 text-center flex flex-col items-center">
+      <div className="p-8 sm:p-10 rounded-2xl bg-gradient-to-r from-blue-50 via-cyan-50 to-blue-50 dark:from-gray-900 dark:via-gray-900 dark:to-gray-900 border border-sky-100 dark:border-gray-800 text-center flex flex-col items-center">
         <h3 className="text-xl sm:text-2xl font-bold text-gray-900 dark:text-white mb-3">
           Prefer a quick chat?
         </h3>
