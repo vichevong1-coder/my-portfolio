@@ -86,7 +86,7 @@ export function Contact() {
       {/* Section Header */}
       <div className="text-center max-w-2xl mx-auto mb-16">
         <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full text-xs font-semibold uppercase tracking-wider bg-gray-100 dark:bg-gray-800 text-gray-700 dark:text-gray-300 mb-4">
-          <MessageSquare className="w-3.5 h-3.5 text-blue-500" />
+          <MessageSquare className="w-3.5 h-3.5 text-blue-500 dark:text-pink-500" />
           <span>Contact</span>
         </div>
         <h2 className="text-3xl sm:text-4xl font-bold tracking-tight text-gray-900 dark:text-white mb-4">
@@ -116,7 +116,7 @@ export function Contact() {
                     {Icon && <Icon className="w-5 h-5" />}
                     {CustomIcon && <CustomIcon className="w-5 h-5" />}
                   </div>
-                  <ArrowUpRight className="w-5 h-5 text-gray-400 group-hover:text-blue-500 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
+                  <ArrowUpRight className="w-5 h-5 text-gray-400 group-hover:text-blue-500 dark:group-hover:text-pink-400 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
                 </div>
                 <h3 className="text-lg font-bold text-gray-900 dark:text-white mb-1">
                   {method.name}
@@ -135,7 +135,7 @@ export function Contact() {
       </div>
 
       {/* Direct CTA Box */}
-      <div className="p-8 sm:p-10 rounded-2xl bg-gradient-to-r from-blue-50 via-cyan-50 to-blue-50 dark:from-gray-900 dark:via-gray-900 dark:to-gray-900 border border-sky-100 dark:border-gray-800 text-center flex flex-col items-center">
+      <div className="p-8 sm:p-10 rounded-2xl bg-gradient-to-r from-blue-50 via-cyan-50 to-blue-50 dark:from-gray-900/90 dark:via-pink-950/20 dark:to-gray-900/90 border border-sky-100 dark:border-pink-500/20 text-center flex flex-col items-center backdrop-blur-sm shadow-sm dark:shadow-[0_4px_30px_rgba(236,72,153,0.08)]">
         <h3 className="text-xl sm:text-2xl font-bold text-gray-900 dark:text-white mb-3">
           Prefer a quick chat?
         </h3>
@@ -146,7 +146,7 @@ export function Contact() {
           href={developer.telegram}
           target="_blank"
           rel="noopener noreferrer"
-          className="inline-flex items-center gap-2 px-6 py-3 rounded-xl font-semibold text-white bg-sky-500 hover:bg-sky-600 dark:bg-sky-500 dark:hover:bg-sky-600 shadow-md shadow-sky-500/25 transition-all hover:scale-105 active:scale-95"
+          className="inline-flex items-center gap-2 px-6 py-3 rounded-xl font-semibold text-white bg-sky-500 hover:bg-sky-600 dark:bg-pink-600 dark:hover:bg-pink-500 shadow-md shadow-sky-500/25 dark:shadow-pink-500/25 transition-all hover:scale-105 active:scale-95"
         >
           <TelegramIcon className="w-5 h-5" />
           <span>Message on Telegram ({developer.telegramUsername})</span>
