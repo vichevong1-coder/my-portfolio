@@ -16,12 +16,21 @@ export interface EngineeringChallenge {
   solution: string;
 }
 
+export interface ProjectVideo {
+  title: string;
+  description: string;
+  url: string;
+  type: "mobile" | "desktop";
+  badge?: string;
+}
+
 export interface Project {
   id: string;
   title: string;
   description: string;
   summary: string;
   videoUrl?: string;
+  videos?: ProjectVideo[];
   screenshots?: string[];
   architectureDiagram?: string;
   link?: string;
@@ -63,7 +72,30 @@ export const portfolioData: PortfolioData = {
       title: "Malatang POS & QR System",
       description: "A full-stack Point of Sale and QR-at-Table ordering system engineered for high-throughput dine-in operations.",
       summary: "This comprehensive system eliminates waiter bottlenecks by enabling diners to scan table QR codes and order directly from their mobile devices. It features dual-currency settlement (USD & KHR), real-time kitchen queues, and a multi-role backoffice dashboard.\n\nEngineered specifically for high-customization DIY dining, it handles dynamic modifier limits, single-turn guest device guards, and instant table session transfers.",
-      videoUrl: "https://pub-24c274def3d943f9a05295aba23b63ad.r2.dev/sample-video.mp4",
+      videoUrl: "https://pub-24c274def3d943f9a05295aba23b63ad.r2.dev/4k/2026-09-21%2001-37-27.mp4",
+      videos: [
+        {
+          title: "Guest Ordering Flow",
+          description: "Live recording captured on an iPhone demonstrating the zero-install table QR ordering flow, bilingual English/Khmer menu, customizable modifiers, and real-time cart.",
+          url: "https://pub-24c274def3d943f9a05295aba23b63ad.r2.dev/4k/IMG_2516.mp4",
+          type: "mobile",
+          badge: "iPhone"
+        },
+        {
+          title: "DIY Menu & Spend Guard",
+          description: "4K desktop walkthrough demonstrating DIY bowl ingredient rules, min/max modifier constraints, and the $3.00 minimum spend policy enforcement.",
+          url: "https://pub-24c274def3d943f9a05295aba23b63ad.r2.dev/4k/2026-09-21%2001-37-27.mp4",
+          type: "desktop",
+          badge: "4K 60FPS"
+        },
+        {
+          title: "Admin Backoffice",
+          description: "4K desktop walkthrough of the administrative backoffice managing categories, bilingual catalog items, modifier groups, and table controls.",
+          url: "https://pub-24c274def3d943f9a05295aba23b63ad.r2.dev/4k/2026-09-21%2001-31-12.mp4",
+          type: "desktop",
+          badge: "4K 60FPS"
+        }
+      ],
       screenshots: [
         "/screenshots/customer-mobile.jpg",
         "/screenshots/cashier-terminal.jpg",

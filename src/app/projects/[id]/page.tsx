@@ -5,6 +5,7 @@ import { notFound } from "next/navigation";
 import { ThemeToggle } from "@/components/ThemeToggle";
 import { UserFlowVisualizer } from "@/components/UserFlowVisualizer";
 import { SafeImage } from "@/components/SafeImage";
+import { VideoShowcase } from "@/components/VideoShowcase";
 
 export default async function ProjectPage({ params }: { params: Promise<{ id: string }> }) {
   const { id } = await params;
@@ -67,22 +68,9 @@ export default async function ProjectPage({ params }: { params: Promise<{ id: st
           </div>
         </div>
 
-        {/* Cloudflare R2 Video Demo */}
-        {project.videoUrl && (
-          <div className="mb-16">
-            <h2 className="text-2xl font-bold mb-6 text-gray-900 dark:text-white drop-shadow-[0_0_8px_rgba(59,130,246,0.5)] dark:drop-shadow-[0_0_8px_rgba(236,72,153,0.5)]">Live Demonstration</h2>
-            <div className="rounded-3xl overflow-hidden bg-white/10 dark:bg-black/40 backdrop-blur-md border border-blue-500/20 dark:border-pink-500/20 shadow-[0_8px_32px_rgba(59,130,246,0.1)] dark:shadow-[0_8px_32px_rgba(236,72,153,0.1)] hover:shadow-[0_8px_32px_rgba(59,130,246,0.3)] dark:hover:shadow-[0_8px_32px_rgba(236,72,153,0.3)] transition-all duration-500">
-              <video
-                src={project.videoUrl}
-                controls
-                autoPlay
-                muted
-                className="w-full aspect-video object-cover"
-              >
-                Your browser does not support the video tag.
-              </video>
-            </div>
-          </div>
+        {/* Cloudflare R2 Video Demo Showcase */}
+        {(project.videos || project.videoUrl) && (
+          <VideoShowcase videos={project.videos} fallbackUrl={project.videoUrl} />
         )}
 
         {/* Interactive User Flow Stepper */}
