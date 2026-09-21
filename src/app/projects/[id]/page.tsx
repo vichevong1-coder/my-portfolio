@@ -7,6 +7,12 @@ import { UserFlowVisualizer } from "@/components/UserFlowVisualizer";
 import { SafeImage } from "@/components/SafeImage";
 import { VideoShowcase } from "@/components/VideoShowcase";
 
+export const dynamicParams = false;
+
+export function generateStaticParams() {
+  return portfolioData.projects.map(({ id }) => ({ id }));
+}
+
 export default async function ProjectPage({ params }: { params: Promise<{ id: string }> }) {
   const { id } = await params;
   const project = portfolioData.projects.find((p) => p.id === id);
@@ -43,17 +49,6 @@ export default async function ProjectPage({ params }: { params: Promise<{ id: st
           </div>
 
           <div className="flex flex-wrap gap-4">
-            {project.link && (
-              <a 
-                href={project.link} 
-                target="_blank" 
-                rel="noopener noreferrer" 
-                className="inline-flex items-center gap-2 px-6 py-3 bg-blue-600 hover:bg-blue-500 dark:bg-pink-600 dark:hover:bg-pink-500 text-white rounded-xl font-medium transition-all duration-300 shadow-md shadow-blue-500/20 dark:shadow-pink-500/20 hover:shadow-[0_0_15px_rgba(59,130,246,0.5)] dark:hover:shadow-[0_0_15px_rgba(236,72,153,0.5)] hover:scale-105"
-              >
-                <ExternalLink size={18} />
-                Live Demo
-              </a>
-            )}
             {project.repo && (
               <a 
                 href={project.repo} 
@@ -181,21 +176,24 @@ export default async function ProjectPage({ params }: { params: Promise<{ id: st
 
         {/* Screenshots Showcase */}
         {project.screenshots && project.screenshots.length > 0 && (
-          <div className="mb-16 space-y-8">
+          <div id="interfaces" className="mb-16 space-y-8 scroll-mt-24">
             <h2 className="text-2xl font-bold text-gray-900 dark:text-white drop-shadow-[0_0_8px_rgba(59,130,246,0.5)] dark:drop-shadow-[0_0_8px_rgba(236,72,153,0.5)]">Interface Showcase</h2>
             
-            {project.screenshots.map((src, idx) => (
-              <div key={idx} className="rounded-3xl overflow-hidden bg-white/10 dark:bg-black/40 backdrop-blur-md border border-blue-500/20 dark:border-pink-500/20 p-2 shadow-[0_8px_32px_rgba(59,130,246,0.1)] dark:shadow-[0_8px_32px_rgba(236,72,153,0.1)] hover:shadow-[0_8px_32px_rgba(59,130,246,0.3)] dark:hover:shadow-[0_8px_32px_rgba(236,72,153,0.3)] transition-all duration-500">
-                <div className="aspect-[4/3] relative flex items-center justify-center text-gray-500">
-                  <SafeImage 
-                    src={src} 
-                    alt={`Interface screenshot ${idx + 1}`} 
-                    className="w-full h-full object-cover rounded-2xl"
-                    placeholderText={`Screenshot Placeholder: Place ${src} in public folder.`}
-                  />
-                </div>
-              </div>
-            ))}
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-8 items-start">
+              {project.screenshots.map((src, idx) => {
+                const isMobileImage = src.includes("mobile");
+                return (
+                  <div key={idx} className={`rounded-[2rem] overflow-hidden border border-gray-200 dark:border-white/10 shadow-[0_8px_32px_rgba(59,130,246,0.1)] dark:shadow-[0_8px_32px_rgba(236,72,153,0.1)] hover:shadow-[0_16px_48px_rgba(59,130,246,0.2)] dark:hover:shadow-[0_16px_48px_rgba(236,72,153,0.2)] transition-all duration-500 ${isMobileImage ? 'md:col-span-1 md:w-2/3 mx-auto' : 'md:col-span-2'}`}>
+                    <SafeImage 
+                      src={src} 
+                      alt={`Interface screenshot ${idx + 1}`} 
+                      className="w-full h-auto"
+                      placeholderText={`Screenshot Placeholder: Place ${src} in public folder.`}
+                    />
+                  </div>
+                );
+              })}
+            </div>
           </div>
         )}
 

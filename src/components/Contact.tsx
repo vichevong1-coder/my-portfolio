@@ -135,23 +135,25 @@ export function Contact() {
       </div>
 
       {/* Direct CTA Box */}
-      <div className="p-8 sm:p-10 rounded-2xl bg-gradient-to-r from-blue-50 via-cyan-50 to-blue-50 dark:from-gray-900/90 dark:via-pink-950/20 dark:to-gray-900/90 border border-sky-100 dark:border-pink-500/20 text-center flex flex-col items-center backdrop-blur-sm shadow-sm dark:shadow-[0_4px_30px_rgba(236,72,153,0.08)]">
+      <a
+        href={developer.telegram}
+        target="_blank"
+        rel="noopener noreferrer"
+        className="group p-8 sm:p-10 rounded-2xl bg-gradient-to-r from-blue-50 via-cyan-50 to-blue-50 dark:from-gray-900/90 dark:via-pink-950/20 dark:to-gray-900/90 border border-gray-200 dark:border-gray-800 text-center flex flex-col items-center backdrop-blur-sm shadow-sm dark:shadow-[0_4px_30px_rgba(236,72,153,0.08)] hover:border-sky-500/50 dark:hover:border-pink-500/50 hover:shadow-md transition-all duration-200 hover:-translate-y-0.5"
+      >
         <h3 className="text-xl sm:text-2xl font-bold text-gray-900 dark:text-white mb-3">
           Prefer a quick chat?
         </h3>
         <p className="text-gray-600 dark:text-gray-400 max-w-md text-sm sm:text-base mb-6">
           Drop me a message on Telegram for the fastest response. I typically reply within a few hours.
         </p>
-        <a
-          href={developer.telegram}
-          target="_blank"
-          rel="noopener noreferrer"
-          className="inline-flex items-center gap-2 px-6 py-3 rounded-xl font-semibold text-white bg-sky-500 hover:bg-sky-600 dark:bg-pink-600 dark:hover:bg-pink-500 shadow-md shadow-sky-500/25 dark:shadow-pink-500/25 transition-all hover:scale-105 active:scale-95"
+        <div
+          className="inline-flex items-center gap-2 px-6 py-3 rounded-xl font-semibold text-white bg-sky-500 group-hover:bg-sky-600 dark:bg-pink-600 dark:group-hover:bg-pink-500 shadow-md shadow-sky-500/25 dark:shadow-pink-500/25 transition-all group-hover:scale-105"
         >
           <TelegramIcon className="w-5 h-5" />
           <span>Message on Telegram ({developer.telegramUsername})</span>
-        </a>
-      </div>
+        </div>
+      </a>
     </section>
   );
 }

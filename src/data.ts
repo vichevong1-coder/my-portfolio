@@ -97,9 +97,9 @@ export const portfolioData: PortfolioData = {
         }
       ],
       screenshots: [
-        "/screenshots/customer-mobile.jpg",
-        "/screenshots/cashier-terminal.jpg",
-        "/screenshots/kitchen-display.jpg",
+        "/screenshots/admin-menu-items.png",
+        "/screenshots/cashier-tables.png",
+        "/screenshots/mobile-ordering.png",
       ],
       architectureDiagram: "/screenshots/architecture.jpg",
       link: "https://example-restaurant.com",

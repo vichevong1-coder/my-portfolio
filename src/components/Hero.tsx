@@ -1,5 +1,7 @@
 import { portfolioData } from "@/data";
-import { ArrowDown, FolderGit2, Mail, Sparkles } from "lucide-react";
+import { ArrowDown, FolderGit2, Smartphone, Terminal, Database, Code2 } from "lucide-react";
+import Link from "next/link";
+import { SafeImage } from "@/components/SafeImage";
 
 interface HeroProps {
   name?: string;
@@ -12,85 +14,112 @@ export function Hero({
   role = portfolioData.developer.role,
   bio = portfolioData.developer.bio,
 }: HeroProps) {
+  const project = portfolioData.projects[0]; // flagship project
+
   return (
     <section
       id="hero"
-      className="relative min-h-[calc(100vh-4rem)] flex items-center justify-center overflow-hidden py-20 px-6"
+      className="relative min-h-[calc(100vh-4rem)] flex items-center justify-center overflow-hidden py-12 lg:py-20 px-6 max-w-7xl mx-auto w-full"
     >
       {/* Background ambient lighting effects */}
       <div
         aria-hidden="true"
-        className="pointer-events-none absolute -top-24 left-1/2 -translate-x-1/2 w-[600px] h-[600px] bg-gradient-to-tr from-blue-400/30 via-indigo-400/20 to-cyan-400/30 dark:from-pink-500/20 dark:via-fuchsia-500/15 dark:to-pink-600/20 rounded-full blur-3xl -z-10 animate-[pulse_8s_ease-in-out_infinite]"
-      >
-        <div className="absolute inset-0 rounded-full bg-gradient-to-tr from-cyan-400/30 dark:from-pink-400/20 to-transparent blur-2xl mix-blend-overlay animate-[spin_12s_linear_infinite]" />
-      </div>
+        className="pointer-events-none absolute top-1/4 left-1/2 -translate-x-1/2 w-[800px] h-[800px] bg-gradient-to-tr from-blue-100 via-indigo-50 to-blue-50 dark:from-pink-900/20 dark:via-purple-900/10 dark:to-blue-900/20 rounded-full blur-3xl -z-10"
+      />
 
-      <div className="max-w-4xl mx-auto text-center flex flex-col items-center z-10">
-        {/* Availability Badge */}
-        <div className="inline-flex items-center gap-2.5 px-4 py-1.5 rounded-full text-xs sm:text-sm font-medium bg-blue-50 text-blue-700 dark:bg-pink-950/70 dark:text-pink-300 border border-blue-200/80 dark:border-pink-900/80 mb-8 shadow-xs">
-          <span className="relative flex h-2 w-2">
-            <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75" />
-            <span className="relative inline-flex rounded-full h-2 w-2 bg-emerald-500" />
-          </span>
-          <span>Available for new opportunities</span>
-          <span className="text-gray-300 dark:text-gray-700">•</span>
-          <span className="text-gray-600 dark:text-gray-400">{role}</span>
-        </div>
-
-        {/* Main Headline */}
-        <h1 className="text-4xl sm:text-6xl md:text-7xl font-extrabold tracking-tight text-gray-900 dark:text-white mb-6 leading-tight">
-          Hi, I&apos;m{" "}
-          <span className="bg-gradient-to-r from-blue-600 via-indigo-600 to-purple-600 dark:from-blue-400 dark:via-indigo-300 dark:to-purple-400 bg-clip-text text-transparent">
-            {name}
-          </span>
-        </h1>
-
-        <p className="text-xl sm:text-2xl font-medium text-gray-700 dark:text-gray-200 mb-6">
-          Building thoughtful web experiences & performant applications.
-        </p>
-
-        {/* Bio description */}
-        <p className="max-w-2xl text-base sm:text-lg text-gray-600 dark:text-gray-400 mb-10 leading-relaxed">
-          {bio}
-        </p>
-
-        {/* CTA Buttons */}
-        <div className="flex flex-col sm:flex-row items-center gap-4 w-full sm:w-auto">
-          <a
-            href="#projects"
-            className="group w-full sm:w-auto inline-flex items-center justify-center gap-2 px-7 py-3.5 rounded-xl font-semibold text-white bg-blue-600 hover:bg-blue-700 dark:bg-pink-600 dark:hover:bg-pink-500 shadow-lg shadow-blue-500/25 dark:shadow-pink-500/25 transition-all duration-200 hover:-translate-y-0.5 active:translate-y-0"
-          >
-            <FolderGit2 className="w-5 h-5 transition-transform group-hover:scale-110" />
-            <span>Explore Projects</span>
-            <ArrowDown className="w-4 h-4 transition-transform group-hover:translate-y-1" />
-          </a>
-
-          <a
-            href="#contact"
-            className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-7 py-3.5 rounded-xl font-semibold text-gray-800 dark:text-gray-200 bg-white dark:bg-gray-900 hover:bg-gray-100 dark:hover:bg-gray-800 border border-gray-200 dark:border-gray-800 shadow-xs transition-all duration-200 hover:-translate-y-0.5 active:translate-y-0"
-          >
-            <Mail className="w-5 h-5 text-gray-500 dark:text-gray-400" />
-            <span>Get in Touch</span>
-          </a>
-        </div>
-
-        {/* Tech Stack quick tags */}
-        <div className="mt-16 pt-8 border-t border-gray-200/80 dark:border-gray-800/80 w-full max-w-xl flex flex-col items-center gap-3">
-          <div className="flex items-center gap-1.5 text-xs uppercase tracking-wider text-gray-500 dark:text-gray-400 font-semibold">
-            <Sparkles className="w-3.5 h-3.5 text-blue-500" />
-            <span>Core Technologies</span>
+      <div className="flex flex-col lg:flex-row items-center gap-16 lg:gap-8 w-full z-10">
+        
+        {/* Left Column: Intro */}
+        <div className="flex-1 flex flex-col items-center lg:items-start text-center lg:text-left space-y-8">
+          <div className="inline-flex items-center gap-2.5 px-4 py-2 rounded-full text-sm font-semibold bg-white dark:bg-gray-900 text-gray-800 dark:text-gray-200 border border-gray-200 dark:border-gray-800 shadow-sm">
+            <span className="relative flex h-2 w-2">
+              <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75" />
+              <span className="relative inline-flex rounded-full h-2 w-2 bg-emerald-500" />
+            </span>
+            Available for new opportunities
           </div>
-          <div className="flex flex-wrap justify-center gap-2 text-sm text-gray-700 dark:text-gray-300">
-            {["Next.js", "React", "TypeScript", "Tailwind CSS", "Node.js"].map((tech) => (
-              <span
-                key={tech}
-                className="px-3 py-1 rounded-lg bg-gray-100 dark:bg-gray-900 border border-gray-200 dark:border-gray-800 font-medium text-xs sm:text-sm"
-              >
-                {tech}
-              </span>
-            ))}
+
+          <h1 className="text-5xl sm:text-6xl lg:text-7xl font-extrabold tracking-tight text-gray-900 dark:text-white leading-[1.1]">
+            Building scalable <br className="hidden sm:block" />
+            <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-indigo-600 dark:from-pink-500 dark:to-purple-500">web & operational</span><br className="hidden sm:block" /> systems.
+          </h1>
+
+          <p className="text-xl text-gray-600 dark:text-gray-400 max-w-xl leading-relaxed">
+            I'm a {role} bridging the gap between robust backend architecture and highly interactive user interfaces.
+          </p>
+
+          <div className="flex flex-col sm:flex-row items-center gap-4 w-full sm:w-auto">
+            <Link
+              href="/projects/restaurant-pos#demo"
+              className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-8 py-4 rounded-xl font-bold text-white bg-blue-600 hover:bg-blue-700 dark:bg-pink-600 dark:hover:bg-pink-700 shadow-lg shadow-blue-500/20 dark:shadow-pink-500/20 transition-all duration-200 hover:-translate-y-1"
+            >
+              <FolderGit2 className="w-5 h-5" />
+              View My Work
+              <ArrowDown className="w-4 h-4" />
+            </Link>
+
+            <a
+              href={portfolioData.developer.github}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-8 py-4 rounded-xl font-bold text-gray-700 dark:text-gray-300 bg-white dark:bg-gray-900 border border-gray-200 dark:border-gray-800 hover:bg-gray-50 dark:hover:bg-gray-800 transition-all duration-200 hover:-translate-y-1 shadow-sm"
+            >
+              <Code2 className="w-5 h-5" />
+              Source Code
+            </a>
+          </div>
+
+          <div className="pt-4 flex items-center gap-6 text-gray-400 dark:text-gray-600">
+             <Code2 className="w-6 h-6 hover:text-blue-500 transition-colors" />
+             <Terminal className="w-6 h-6 hover:text-blue-500 transition-colors" />
+             <Database className="w-6 h-6 hover:text-blue-500 transition-colors" />
+             <Smartphone className="w-6 h-6 hover:text-blue-500 transition-colors" />
           </div>
         </div>
+
+        {/* Right Column: Visual Preview */}
+        <div className="flex-1 w-full max-w-lg lg:max-w-none relative">
+           <div className="relative rounded-[2rem] overflow-hidden border border-gray-200 dark:border-gray-800 bg-gray-50 dark:bg-gray-900 shadow-2xl rotate-2 hover:rotate-0 transition-transform duration-500">
+             <div className="absolute top-0 left-0 w-full h-12 bg-white/80 dark:bg-black/80 backdrop-blur flex items-center px-6 border-b border-gray-200 dark:border-gray-800 z-10">
+                <div className="flex gap-2 w-16">
+                  <div className="w-3 h-3 rounded-full bg-red-400"></div>
+                  <div className="w-3 h-3 rounded-full bg-amber-400"></div>
+                  <div className="w-3 h-3 rounded-full bg-green-400"></div>
+                </div>
+                <div className="flex-1 flex justify-center">
+                   <div className="flex items-center gap-2 px-3 py-1 rounded-md bg-gray-100/50 dark:bg-gray-800/50 text-xs font-medium text-gray-500 dark:text-gray-400">
+                     <span className="opacity-50">🔒</span> vongpos.com/admin
+                   </div>
+                </div>
+                <div className="w-16"></div>
+             </div>
+             <div className="pt-12 aspect-[4/3] w-full">
+               {project.screenshots?.[0] ? (
+                 <SafeImage 
+                    src={project.screenshots[0]} 
+                    alt="Project Preview" 
+                    className="w-full h-full object-cover object-left-top"
+                    placeholderText="Preview"
+                 />
+               ) : (
+                 <div className="w-full h-full flex items-center justify-center bg-gray-100 dark:bg-gray-800 text-gray-400">Preview</div>
+               )}
+             </div>
+           </div>
+
+           {/* Floating Mobile Card */}
+           <div className="absolute -bottom-8 -left-8 lg:-left-16 w-32 sm:w-48 aspect-[9/19] rounded-2xl overflow-hidden border-4 border-white dark:border-gray-900 shadow-xl shadow-blue-500/10 dark:shadow-pink-500/10 -rotate-6 hover:rotate-0 transition-transform duration-500 z-20 bg-black">
+              {project.screenshots?.[2] && (
+                 <SafeImage 
+                    src={project.screenshots[2]} 
+                    alt="Mobile Preview" 
+                    className="w-full h-full object-cover"
+                    placeholderText="Mobile"
+                 />
+              )}
+           </div>
+        </div>
+
       </div>
     </section>
   );
