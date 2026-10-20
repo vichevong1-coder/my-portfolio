@@ -24,6 +24,13 @@ export interface ProjectVideo {
   badge?: string;
 }
 
+export interface ArchitectureHighlight {
+  pillar: string;
+  tagline: string;
+  category: "backend" | "fintech" | "cloud" | "frontend";
+  points: string[];
+}
+
 export interface Project {
   id: string;
   title: string;
@@ -39,6 +46,7 @@ export interface Project {
   roles?: string[];
   userFlows?: UserFlowRole[];
   engineeringChallenges?: EngineeringChallenge[];
+  architectureHighlights?: ArchitectureHighlight[];
 }
 
 export interface PortfolioData {
@@ -58,8 +66,8 @@ export interface PortfolioData {
 export const portfolioData: PortfolioData = {
   developer: {
     name: "Nhar Vichovong",
-    role: "Full-Stack Developer",
-    bio: "I am a software developer with a strong background in both backend systems (Java/PostgreSQL) and modern frontend interfaces (React/Tailwind). I enjoy building full-stack products from the ground up.",
+    role: "Software Engineer",
+    bio: "Software Engineer specializing in robust backend architecture, cloud deployments, and FinTech workflows. Experienced in designing resilient distributed systems, transactional dual-currency accounting, and modern web applications from the ground up.",
     email: "vichevong1@gmail.com",
     github: "https://github.com/vichevong1-coder",
     linkedin: "https://www.linkedin.com/in/viche-vong-001a84437",
@@ -70,7 +78,7 @@ export const portfolioData: PortfolioData = {
     {
       id: "restaurant-pos",
       title: "Malatang POS & QR System",
-      description: "A full-stack Point of Sale and QR-at-Table ordering system engineered for high-throughput dine-in operations.",
+      description: "A high-concurrency Point of Sale and QR-at-Table ordering system engineered with pessimistic locking, dual-currency settlement, and zero-trust cloud tunneling.",
       summary: "This comprehensive system eliminates waiter bottlenecks by enabling diners to scan table QR codes and order directly from their mobile devices. It features dual-currency settlement (USD & KHR), real-time kitchen queues, and a multi-role backoffice dashboard.\n\nEngineered specifically for high-customization DIY dining, it handles dynamic modifier limits, single-turn guest device guards, and instant table session transfers.",
       videoUrl: "https://pub-24c274def3d943f9a05295aba23b63ad.r2.dev/4k/2026-09-21%2001-37-27.mp4",
       videos: [
@@ -101,7 +109,6 @@ export const portfolioData: PortfolioData = {
         "/screenshots/cashier-tables.png",
         "/screenshots/mobile-ordering.png",
       ],
-      architectureDiagram: "/screenshots/architecture.jpg",
       link: "https://example-restaurant.com",
       repo: "https://github.com/vichevong1-coder/resturant",
       tags: ["Java 21", "Spring Boot", "React 19", "Vite", "TypeScript", "PostgreSQL", "Docker", "Tailwind CSS"],
@@ -167,6 +174,48 @@ export const portfolioData: PortfolioData = {
           title: "Wrong-Table Scans & Switching Tables",
           problem: "Customers often move to a better table after sitting down, or accidentally scan the QR sticker on the neighboring table, sending their food to the wrong spot.",
           solution: "1-Click Table Move (transferSession):\nOrders belong to a dynamic 'Table Session' rather than physical furniture. If a customer sits at the wrong table, the cashier can move the entire active session to the correct idle table with one click—keeping the bill and all kitchen tickets perfectly in sync."
+        }
+      ],
+      architectureHighlights: [
+        {
+          pillar: "Backend & Concurrency",
+          tagline: "High-throughput transactional integrity & session lifecycle",
+          category: "backend",
+          points: [
+            "Pessimistic session locking on cart checkout to eliminate concurrent race conditions across shared tables.",
+            "Dynamic table session lifecycle decoupling active orders from physical furniture for zero-downtime transfers.",
+            "Immutable order rounds with mandatory audit trails for voids, item cancellations, and kitchen reconciliation."
+          ]
+        },
+        {
+          pillar: "FinTech & Financial Logic",
+          tagline: "Dual-currency settlement, anti-fraud & threshold policies",
+          category: "fintech",
+          points: [
+            "Dual-currency exchange engine calculating mixed USD/Khmer Riel (KHR) cash settlements with exact change breakdown.",
+            "Single-device spent guard (SpentDeviceGuard) and token revocation preventing off-premise ghost ordering fraud.",
+            "BuildMinimumPolicy threshold rules enforcing strict minimum spend constraints before kitchen dispatch."
+          ]
+        },
+        {
+          pillar: "Cloud & Network Security",
+          tagline: "Zero-trust ingress, containerization & schema versioning",
+          category: "cloud",
+          points: [
+            "Zero-trust remote tunneling via Cloudflare Tunnel, exposing internal services without public inbound open ports.",
+            "Containerized microservices on AWS EC2 with Docker and Nginx reverse proxy for reproducible parity.",
+            "Database schema version control with Flyway automated migrations on PostgreSQL."
+          ]
+        },
+        {
+          pillar: "Frontend & Systems UX",
+          tagline: "Real-time synchronization, KDS queues & operational dashboards",
+          category: "frontend",
+          points: [
+            "Zero-install guest mobile web client with real-time bilingual (Khmer/English) menu toggling.",
+            "Chronological FIFO kitchen display system (KDS) with visual ticket aging alerts (Standard ➔ Amber ➔ Red).",
+            "High-density, touch-optimized cashier status board with live table states (Idle, Ordered, Served)."
+          ]
         }
       ]
     }

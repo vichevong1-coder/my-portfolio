@@ -132,7 +132,7 @@ export function UserFlowVisualizer({ flows }: UserFlowVisualizerProps) {
                           </div>
                         )}
                       </div>
-                      <h4 className="font-semibold text-gray-900 dark:text-white text-[15px] xl:text-base tracking-tight mb-2 group-hover:text-blue-600 dark:group-hover:text-pink-400 transition-colors line-clamp-1">
+                      <h4 className="font-semibold text-gray-900 dark:text-white text-[15px] xl:text-base tracking-tight mb-2 group-hover:text-blue-600 dark:group-hover:text-pink-400 transition-colors">
                         {item.step}
                       </h4>
                       <p className="text-sm text-gray-600 dark:text-gray-400 leading-relaxed">

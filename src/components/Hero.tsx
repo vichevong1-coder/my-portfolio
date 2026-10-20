@@ -1,5 +1,5 @@
 import { portfolioData } from "@/data";
-import { ArrowDown, FolderGit2, Smartphone, Terminal, Database, Code2 } from "lucide-react";
+import { ArrowDown, FolderGit2, Smartphone, Terminal, Database, Code2, Server, ShieldCheck } from "lucide-react";
 import Link from "next/link";
 import { SafeImage } from "@/components/SafeImage";
 
@@ -10,9 +10,7 @@ interface HeroProps {
 }
 
 export function Hero({
-  name = portfolioData.developer.name,
   role = portfolioData.developer.role,
-  bio = portfolioData.developer.bio,
 }: HeroProps) {
   const project = portfolioData.projects[0]; // flagship project
 
@@ -40,12 +38,12 @@ export function Hero({
           </div>
 
           <h1 className="text-5xl sm:text-6xl lg:text-7xl font-extrabold tracking-tight text-gray-900 dark:text-white leading-[1.1]">
-            Building scalable <br className="hidden sm:block" />
-            <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-indigo-600 dark:from-pink-500 dark:to-purple-500">web & operational</span><br className="hidden sm:block" /> systems.
+            Building scalable systems, <br className="hidden sm:block" />
+            <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-indigo-600 dark:from-pink-500 dark:to-purple-500">resilient infrastructure</span><br className="hidden sm:block" /> & financial tools.
           </h1>
 
           <p className="text-xl text-gray-600 dark:text-gray-400 max-w-xl leading-relaxed">
-            I'm a {role} bridging the gap between robust backend architecture and highly interactive user interfaces.
+            I&apos;m a {role} specializing in robust backend architecture, cloud deployments, and FinTech workflows—engineering high-concurrency systems from low-latency data layers to seamless interfaces.
           </p>
 
           <div className="flex flex-col sm:flex-row items-center gap-4 w-full sm:w-auto">
@@ -70,10 +68,11 @@ export function Hero({
           </div>
 
           <div className="pt-4 flex items-center gap-6 text-gray-400 dark:text-gray-600">
-             <Code2 className="w-6 h-6 hover:text-blue-500 transition-colors" />
-             <Terminal className="w-6 h-6 hover:text-blue-500 transition-colors" />
-             <Database className="w-6 h-6 hover:text-blue-500 transition-colors" />
-             <Smartphone className="w-6 h-6 hover:text-blue-500 transition-colors" />
+             <Server className="w-6 h-6 hover:text-blue-500 dark:hover:text-pink-400 transition-colors" />
+             <Database className="w-6 h-6 hover:text-blue-500 dark:hover:text-pink-400 transition-colors" />
+             <ShieldCheck className="w-6 h-6 hover:text-blue-500 dark:hover:text-pink-400 transition-colors" />
+             <Terminal className="w-6 h-6 hover:text-blue-500 dark:hover:text-pink-400 transition-colors" />
+             <Smartphone className="w-6 h-6 hover:text-blue-500 dark:hover:text-pink-400 transition-colors" />
           </div>
         </div>
 

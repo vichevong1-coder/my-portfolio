@@ -5,14 +5,18 @@ import { Sun, Moon } from "lucide-react";
 
 export function ThemeToggle({ className = "" }: { className?: string }) {
   const { setTheme, resolvedTheme } = useTheme();
-  
-  // Default to dark mode for the icon if unresolved to prevent empty boxes
-  const isDark = resolvedTheme === "dark" || resolvedTheme === undefined;
+
+  const toggleTheme = () => {
+    const isDark = 
+      resolvedTheme === "dark" || 
+      (typeof document !== "undefined" && document.documentElement.classList.contains("dark"));
+    setTheme(isDark ? "light" : "dark");
+  };
 
   return (
     <button
       type="button"
-      onClick={() => setTheme(isDark ? "light" : "dark")}
+      onClick={toggleTheme}
       aria-label="Toggle theme"
       className={`relative w-10 h-10 flex items-center justify-center rounded-xl border border-blue-500/30 dark:border-pink-500/30 bg-blue-50/50 dark:bg-black/50 hover:bg-blue-100/50 dark:hover:bg-pink-950/50 hover:shadow-[0_0_15px_rgba(59,130,246,0.5)] dark:hover:shadow-[0_0_15px_rgba(236,72,153,0.5)] text-blue-600 dark:text-pink-500 backdrop-blur-md transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-blue-500/50 dark:focus:ring-pink-500/50 active:scale-95 ${className}`}
     >

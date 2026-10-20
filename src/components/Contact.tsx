@@ -1,5 +1,5 @@
 import { portfolioData } from "@/data";
-import { Mail, ArrowUpRight, MessageSquare, Send } from "lucide-react";
+import { Mail, ArrowUpRight, MessageSquare } from "lucide-react";
 
 function GithubIcon({ className = "w-5 h-5" }: { className?: string }) {
   return (

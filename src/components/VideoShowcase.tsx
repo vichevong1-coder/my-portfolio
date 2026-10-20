@@ -1,7 +1,7 @@
 "use client";
 
 import { useState } from "react";
-import { Smartphone, Monitor, Play, CheckCircle2 } from "lucide-react";
+import { Smartphone, Monitor, Play } from "lucide-react";
 
 export interface ProjectVideo {
   title: string;
@@ -37,7 +37,7 @@ export function VideoShowcase({ videos, fallbackUrl }: VideoShowcaseProps) {
             <Play className="w-3 h-3 fill-current" />
             <span>Interactive Demo</span>
           </div>
-          <h2 className="text-2xl sm:text-3xl font-bold text-gray-900 dark:text-white drop-shadow-[0_0_8px_rgba(59,130,246,0.5)] dark:drop-shadow-[0_0_8px_rgba(236,72,153,0.5)]">
+          <h2 className="text-2xl sm:text-3xl font-bold text-gray-900 dark:text-white dark:drop-shadow-[0_0_8px_rgba(236,72,153,0.5)]">
             Customer Experience Video
           </h2>
         </div>
@@ -96,7 +96,7 @@ export function VideoShowcase({ videos, fallbackUrl }: VideoShowcaseProps) {
           </div>
         ) : (
           /* Desktop 16:9 widescreen frame */
-          <div className="rounded-3xl overflow-hidden bg-white/10 dark:bg-black/40 backdrop-blur-md border border-blue-500/20 dark:border-pink-500/20 shadow-[0_8px_32px_rgba(59,130,246,0.1)] dark:shadow-[0_8px_32px_rgba(236,72,153,0.1)] hover:shadow-[0_8px_32px_rgba(59,130,246,0.2)] dark:hover:shadow-[0_8px_32px_rgba(236,72,153,0.2)] transition-all duration-500">
+          <div className="rounded-3xl overflow-hidden bg-white dark:bg-black/40 backdrop-blur-md border border-gray-200/80 dark:border-pink-500/20 shadow-md dark:shadow-[0_8px_32px_rgba(236,72,153,0.1)] hover:shadow-xl dark:hover:shadow-[0_8px_32px_rgba(236,72,153,0.2)] transition-all duration-500">
             <video
               key={currentVideo.url}
               src={currentVideo.url}
