@@ -48,7 +48,7 @@ export function Hero({
 
           <div className="flex flex-col sm:flex-row items-center gap-4 w-full sm:w-auto">
             <Link
-              href="/projects/restaurant-pos#demo"
+              href="#projects"
               className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-8 py-4 rounded-xl font-bold text-white bg-blue-600 hover:bg-blue-700 dark:bg-pink-600 dark:hover:bg-pink-700 shadow-lg shadow-blue-500/20 dark:shadow-pink-500/20 transition-all duration-200 hover:-translate-y-1"
             >
               <FolderGit2 className="w-5 h-5" />

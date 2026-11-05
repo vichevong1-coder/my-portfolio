@@ -20,7 +20,7 @@ export function Projects() {
   const [restaurantProject, bankProject, shopProject] = portfolioData.projects;
 
   return (
-    <section id="projects" className="py-24 px-6 md:px-12 max-w-7xl mx-auto w-full space-y-32">
+    <section id="projects" className="scroll-mt-16 py-24 px-6 md:px-12 max-w-7xl mx-auto w-full space-y-32">
       <div>
         <div className="mb-16">
           <h2 className="text-4xl md:text-5xl font-extrabold tracking-tight text-gray-900 dark:text-white mb-4">Featured Case Studies</h2>
