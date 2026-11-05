@@ -218,6 +218,117 @@ export const portfolioData: PortfolioData = {
           ]
         }
       ]
+    },
+    {
+      id: "online-bank",
+      title: "Online Banking System (OBS)",
+      description: "A multi-tier banking platform engineered with Java Spring Boot 3, PostgreSQL 17, a React admin console, and a Flutter mobile client featuring camera KYC onboarding, fund transfers, and transactional audit trails.",
+      summary: "Online Banking System is an enterprise-grade financial monorepo engineered across three coordinated stacks: a high-security Spring Boot REST API as the single source of truth, a back-office React administrative portal for bank staff, and a cross-platform Flutter customer app.\n\nDesigned around mission-critical banking workflows, the system implements camera-based KYC identity onboarding, teller and admin approval queues, atomic multi-account fund transfers, DevSms 2FA verification, automated PDF statement generation, and transactional audit logging.",
+      repo: "https://github.com/vichevong1-coder/Online-Banking-System",
+      tags: [
+        "Java 21",
+        "Spring Boot 3",
+        "PostgreSQL 17",
+        "React",
+        "TypeScript",
+        "Flutter",
+        "Docker Compose",
+        "Spring Security",
+        "Flyway"
+      ],
+      roles: ["Full-Stack Engineer", "Backend Architect", "Systems Administrator"],
+      userFlows: [
+        {
+          role: "Customer (Mobile Banking)",
+          description: "Mobile onboarding, multi-factor security, real-time balances, and fund transfers.",
+          badge: "Flutter App",
+          steps: [
+            { step: "Camera KYC Registration", detail: "Captures national ID documents and a biometric selfie, submitting credentials to the staff review queue." },
+            { step: "Challenge-Token 2FA", detail: "Undergoes mandatory two-factor authentication via DevSms OTP challenge verification before token issuance." },
+            { step: "Account & Statement Center", detail: "Monitors ledger balances, queries real-time transaction records, and exports monthly PDF statements." },
+            { step: "Atomic Fund Transfers", detail: "Executes intra-bank account transfers with immediate debit verification and receipt generation." }
+          ]
+        },
+        {
+          role: "Teller & Operations Staff",
+          description: "Customer onboarding verification, account status management, and transaction queries.",
+          badge: "Web Admin Console",
+          steps: [
+            { step: "KYC Review Console", detail: "Inspects uploaded ID documents and biometric selfies in a queue to approve or reject pending customer accounts." },
+            { step: "Customer Lifecycle Servicing", detail: "Searches customer profiles, monitors active vs. suspended states, and assists with branch-level account inquiries." },
+            { step: "Transaction Investigation", detail: "Audits transaction logs, filters failed transfers, and confirms settlement statuses." }
+          ]
+        },
+        {
+          role: "System Administrator",
+          description: "Governance, staff permissions, audit trail inspection, and container topology.",
+          badge: "Governance & Security",
+          steps: [
+            { step: "Granular RBAC Policies", detail: "Enforces role-based permissions separating TELLER, ADMIN, and CUSTOMER authorization boundaries." },
+            { step: "Immutable Audit Trails", detail: "Maintains structured audit logs recording administrative approvals, status modifications, and security events." },
+            { step: "Containerized Orchestration", detail: "Coordinates local topology spanning PostgreSQL 17-alpine, Mailpit SMTP, and Spring Boot via Docker Compose." }
+          ]
+        }
+      ],
+      engineeringChallenges: [
+        {
+          title: "Camera KYC State Machine & Multi-Portal Queue",
+          problem: "Customer onboarding requires document verification without giving unapproved users access to financial endpoints, while maintaining reactive state updates across both mobile and web admin portals.",
+          solution: "Architected an AccountStatus state machine (PENDING_APPROVAL ➔ ACTIVE / REJECTED). Unapproved accounts are blocked at the Spring Security filter with structured challenge responses, while the React admin dashboard exposes a dedicated review console for bank tellers to approve or reject submissions in real time."
+        },
+        {
+          title: "Isolated CI/CD for Monorepo Stacks",
+          problem: "Deploying and testing Java (Spring Boot), TypeScript (React), and Dart (Flutter) in a unified repository caused excessive CI run times and pipeline bottlenecks on every pull request.",
+          solution: "Configured path-filtered GitHub Actions workflows (`backend-ci.yml`, `web-admin-ci.yml`, `mobile-ci.yml`) triggering exclusively on scoped directory modifications, isolating build environments and keeping build verification fast and targeted."
+        },
+        {
+          title: "ACID Transactional Integrity & Ledger Auditability",
+          problem: "Fund transfers and account balance changes risk race conditions or partial failures during network anomalies, which could corrupt customer account balances.",
+          solution: "Enforced strict `@Transactional` boundaries within Spring Data JPA repositories featuring debit-first balance validations and dual-entry ledger mutations, paired with immutable audit event logging for complete regulatory traceability."
+        }
+      ],
+      architectureHighlights: [
+        {
+          pillar: "Core Backend & Security",
+          tagline: "Spring Boot 3, Spring Security & Granular RBAC",
+          category: "backend",
+          points: [
+            "Stateless JWT access and refresh token architecture with mandatory challenge-token 2FA verification.",
+            "Feature-first package layout enforcing strict separation across controllers, services, repositories, and DTOs.",
+            "Method-level authorization with `@PreAuthorize` segregating Teller, Admin, and Customer operational capabilities."
+          ]
+        },
+        {
+          pillar: "FinTech & Banking Workflows",
+          tagline: "KYC Onboarding, Ledger Integrity & PDF Reporting",
+          category: "fintech",
+          points: [
+            "Customer KYC verification queue with multi-state customer lifecycle transitions and rejection explanation banners.",
+            "Debit-first atomic fund transfers guaranteeing ledger balance consistency across source and target accounts.",
+            "Automated bank statement generation using Apache PDFBox with transactional summary breakdowns."
+          ]
+        },
+        {
+          pillar: "Infrastructure & Tooling",
+          tagline: "Docker Compose, PostgreSQL 17 & Mailpit SMTP",
+          category: "cloud",
+          points: [
+            "Multi-service Docker Compose topology orchestrating PostgreSQL 17-alpine, Mailpit SMTP, and backend services.",
+            "Database versioning and schema migrations managed with Flyway for reproducible local and CI environments.",
+            "DevSms outbox engine simulating two-factor SMS delivery without third-party telecommunication costs."
+          ]
+        },
+        {
+          pillar: "Multi-Client Systems UX",
+          tagline: "React Admin Console & Flutter Cross-Platform App",
+          category: "frontend",
+          points: [
+            "Tailwind CSS-powered React operational dashboard for high-density teller and administrator workflows.",
+            "Flutter mobile client for iOS and Android featuring camera ID scanning and real-time transaction history.",
+            "Interactive Swagger UI / OpenAPI 3 specification for full REST API documentation and integration testing."
+          ]
+        }
+      ]
     }
   ]
 };
