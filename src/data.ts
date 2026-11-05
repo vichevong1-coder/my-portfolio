@@ -329,6 +329,120 @@ export const portfolioData: PortfolioData = {
           ]
         }
       ]
+    },
+    {
+      id: "shopv1",
+      title: "Shopv1 — Full-Stack E-Commerce Platform",
+      description: "A production-ready e-commerce platform engineered with React 19, Node.js/Express, PostgreSQL, and Prisma ORM, featuring dual payment gateways (Stripe & Bakong KHQR), atomic inventory management, and an admin analytics dashboard.",
+      summary: "Shopv1 is a modern, high-performance retail platform engineered to handle both domestic and international e-commerce workflows. It combines global credit card processing via Stripe with Cambodia's national Bakong KHQR payment standard.\n\nDesigned with concurrency and financial consistency at its core, the platform enforces atomic inventory reservations inside Prisma transactions to prevent overselling, paired with an administrative console for multi-variant product provisioning, order tracking, and revenue analytics.",
+      repo: "https://github.com/vichevong1-coder/Shopv1",
+      screenshots: [
+        "/screenshots/shopv1-preview.png"
+      ],
+      tags: [
+        "React 19",
+        "Node.js",
+        "Express 5",
+        "TypeScript",
+        "PostgreSQL",
+        "Prisma ORM",
+        "Stripe API",
+        "Bakong KHQR",
+        "Docker Compose"
+      ],
+      roles: ["Full-Stack Engineer", "Backend Developer", "DevOps Engineer"],
+      userFlows: [
+        {
+          role: "Shopper (Storefront)",
+          description: "Product discovery, multi-variant selection, persistent cart, and seamless checkout.",
+          badge: "Customer Experience",
+          steps: [
+            { step: "Catalog Browsing & Fuzzy Search", detail: "Filters products by category, gender, color, and size with real-time stock availability badges." },
+            { step: "Variant Selection & Cart Sync", detail: "Interactively chooses sizes/colors with guest cart persistence that automatically merges upon account login." },
+            { step: "Dual Payment Checkout", detail: "Completes purchases via Stripe card element or dynamic Bakong KHQR scan with instant payment polling." },
+            { step: "Order Status Tracking", detail: "Monitors order lifecycle progression from pending to confirmed, shipped, and delivered." }
+          ]
+        },
+        {
+          role: "Payment & Webhook Engine",
+          description: "Dual payment gateway reconciliation and transaction verification.",
+          badge: "FinTech Rail",
+          steps: [
+            { step: "Stripe Payment Intents", detail: "Creates secure client-secret tokens and validates server-side webhook signatures before finalizing orders." },
+            { step: "Bakong KHQR Generation", detail: "Generates dynamic EMVCo-compliant KHQR payload with automated MD5 hash verification upon settlement." },
+            { step: "Atomic Stock Confirmation", detail: "Locks inventory within a database transaction upon verified payment, reverting stock if payment fails or expires." }
+          ]
+        },
+        {
+          role: "Store Administrator",
+          description: "Catalog curation, order fulfillment, and business analytics.",
+          badge: "Admin Dashboard",
+          steps: [
+            { step: "Multi-Variant Product Management", detail: "Creates, updates, and soft-deletes products with multi-image uploads and granular stock per size/color." },
+            { step: "Fulfillment & Tracking", detail: "Updates shipment statuses, adds tracking information, and manages customer order inquiries." },
+            { step: "Revenue & Sales Analytics", detail: "Inspects real-time revenue graphs, pending orders, and top-performing product categories." }
+          ]
+        }
+      ],
+      engineeringChallenges: [
+        {
+          title: "Eliminating Inventory Race Conditions & Overselling",
+          problem: "When multiple shoppers attempt to checkout the last available item in a specific size/color simultaneously, standard asynchronous queries risk selling more stock than physically exists.",
+          solution: "Implemented atomic stock reservation within Prisma interactive database transactions (`prisma.$transaction`). Stock count is checked and decremented in a single atomic database lock, immediately aborting the checkout if available quantity is insufficient."
+        },
+        {
+          title: "Dual Payment Gateway Webhook Reconciliation",
+          problem: "Stripe and Bakong KHQR operate under completely different verification protocols (Stripe uses cryptographic HMAC webhook signatures, while Bakong KHQR relies on dynamic payload generation and MD5 transaction hashing), requiring a unified order state reconciliation system.",
+          solution: "Architected an idempotent payment reconciliation pipeline. Webhook listeners for Stripe and polling workers for Bakong KHQR both funnel into a shared `finalizeOrder` transaction that verifies payment state before transitioning the order to `CONFIRMED` and generating customer receipts."
+        },
+        {
+          title: "Persistent Guest Cart with Seamless Account Merge",
+          problem: "Shoppers frequently add items to their cart as guests before signing in or creating an account, causing frustration if their selected items are lost after authentication.",
+          solution: "Engineered a local storage cart adapter that synchronizes with the server. Upon authentication (JWT issuance), an automated merge routine queries the user's saved database cart and consolidates guest items without duplicating items or overwriting variant selections."
+        }
+      ],
+      architectureHighlights: [
+        {
+          pillar: "Core Backend & Data Layer",
+          tagline: "Express 5, Prisma ORM 7 & PostgreSQL",
+          category: "backend",
+          points: [
+            "RESTful API architecture built on Express 5, Node.js 20+, and strict TypeScript type contracts.",
+            "PostgreSQL database layer abstracted with Prisma ORM 7 leveraging the high-speed `@prisma/adapter-pg` driver.",
+            "JWT authentication pairing 15-minute access tokens with secure HttpOnly refresh token rotation."
+          ]
+        },
+        {
+          pillar: "FinTech & Payment Rails",
+          tagline: "Stripe Cards & Bakong KHQR Dynamic Settlement",
+          category: "fintech",
+          points: [
+            "Stripe Payment Intents integration supporting international credit and debit cards with webhook verification.",
+            "Dynamic Bakong KHQR generation compliant with National Bank of Cambodia standards with automated transaction validation.",
+            "ACID transactional stock reservation ensuring zero inventory leakage during checkout surges."
+          ]
+        },
+        {
+          pillar: "DevOps & Containerization",
+          tagline: "Docker Compose, Nginx & Persistent Volumes",
+          category: "cloud",
+          points: [
+            "Full-stack containerization with Docker Compose orchestrating frontend, backend API, and PostgreSQL.",
+            "Persistent Docker volume mounts for database data (`postgres_data`) and self-hosted image uploads (`backend_uploads`).",
+            "Nginx reverse proxy with security headers (Helmet, CSP) and API rate-limiting middleware."
+          ]
+        },
+        {
+          pillar: "Modern Storefront UX",
+          tagline: "React 19, Vite & Dynamic Variant Selectors",
+          category: "frontend",
+          points: [
+            "High-speed React 19 storefront with client-side routing via React Router DOM and Lucide React icons.",
+            "Interactive product variant matrix (sizes, colors) with real-time stock availability indicators.",
+            "High-density admin dashboard with sales charts, order lifecycle management, and catalog controls."
+          ]
+        }
+      ]
     }
   ]
 };
