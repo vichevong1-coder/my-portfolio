@@ -1,4 +1,5 @@
 import { portfolioData } from "@/data";
+import Image from "next/image";
 import { 
   ArrowRight, 
   LayoutDashboard, 
@@ -10,7 +11,6 @@ import {
   CheckCircle2,
   ShoppingBag,
   CreditCard,
-  QrCode,
   PackageCheck,
   Database
 } from "lucide-react";
@@ -69,7 +69,13 @@ export function Projects() {
               <div className="aspect-video md:col-span-8 md:col-start-1 md:row-start-1 relative rounded-3xl overflow-hidden border-2 border-gray-100 dark:border-white/10 shadow-2xl group bg-gray-50 dark:bg-gray-900">
                 {restaurantProject.screenshots?.[0] && (
                   <div className="w-full h-full relative">
-                    <img src={restaurantProject.screenshots[0]} alt="Admin Dashboard" className="absolute inset-0 w-full h-full object-cover object-left-top transition-transform duration-700 group-hover:scale-[1.02]" />
+                    <Image
+                      src={restaurantProject.screenshots[0]}
+                      alt="Admin Dashboard"
+                      fill
+                      sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+                      className="object-cover object-left-top transition-transform duration-700 group-hover:scale-[1.02]"
+                    />
                     <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end p-6">
                       <div className="translate-y-4 group-hover:translate-y-0 transition-transform duration-300">
                         <span className="text-white font-bold text-lg flex items-center gap-2 mb-1"><LayoutDashboard size={20}/> Admin Dashboard</span>
@@ -84,7 +90,13 @@ export function Projects() {
               <div className="aspect-video md:col-span-8 md:col-start-1 md:row-start-2 relative rounded-2xl overflow-hidden border-2 border-gray-100 dark:border-white/10 shadow-lg group bg-gray-50 dark:bg-gray-900">
                 {restaurantProject.screenshots?.[1] && (
                   <div className="w-full h-full relative">
-                    <img src={restaurantProject.screenshots[1]} alt="Cashier Interface" className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-[1.05]" />
+                    <Image
+                      src={restaurantProject.screenshots[1]}
+                      alt="Cashier Interface"
+                      fill
+                      sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+                      className="object-cover transition-transform duration-700 group-hover:scale-[1.05]"
+                    />
                     <div className="absolute inset-0 bg-black/60 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center p-4 text-center">
                       <span className="text-white font-bold flex flex-col items-center gap-2"><Monitor size={24}/> Cashier Overview</span>
                     </div>
@@ -96,7 +108,13 @@ export function Projects() {
               <div className="aspect-[576/1246] w-full max-w-72 justify-self-center md:col-span-4 md:col-start-9 md:row-start-1 md:row-span-2 md:aspect-auto md:h-full md:max-w-none relative rounded-[2rem] overflow-hidden border border-gray-200 dark:border-white/10 shadow-2xl group bg-gray-50 dark:bg-gray-900">
                 {restaurantProject.screenshots?.[2] && (
                   <div className="w-full h-full relative">
-                    <img src={restaurantProject.screenshots[2]} alt="Mobile Ordering" className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" />
+                    <Image
+                      src={restaurantProject.screenshots[2]}
+                      alt="Mobile Ordering"
+                      fill
+                      sizes="(max-width: 768px) 100vw, 300px"
+                      className="object-cover transition-transform duration-700 group-hover:scale-105"
+                    />
                     <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end p-6">
                       <div className="translate-y-4 group-hover:translate-y-0 transition-transform duration-300">
                         <span className="text-white font-bold text-lg flex items-center gap-2 mb-1"><Smartphone size={20}/> Guest Mobile UI</span>

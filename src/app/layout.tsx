@@ -1,4 +1,4 @@
-import type { Metadata } from "next";
+import type { Metadata, Viewport } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 
@@ -15,8 +15,18 @@ const geistMono = Geist_Mono({
 import { ThemeProvider } from "@/components/ThemeProvider";
 
 export const metadata: Metadata = {
-  title: "My Portfolio",
-  description: "A showcase of my projects and skills.",
+  title: "Nhar Vichovong | Software Developer Portfolio",
+  description: "Portfolio of Nhar Vichovong, a software developer specializing in backend architecture, FinTech, and responsive web apps.",
+};
+
+export const viewport: Viewport = {
+  themeColor: [
+    { media: "(prefers-color-scheme: light)", color: "#ffffff" },
+    { media: "(prefers-color-scheme: dark)", color: "#000000" },
+  ],
+  width: "device-width",
+  initialScale: 1,
+  viewportFit: "cover",
 };
 
 export default function RootLayout({ children }: LayoutProps<"/">) {

@@ -37,13 +37,13 @@ export function Hero({
             Available for new opportunities
           </div>
 
-          <h1 className="text-5xl sm:text-6xl lg:text-7xl font-extrabold tracking-tight text-gray-900 dark:text-white leading-[1.1]">
-            Building scalable systems, <br className="hidden sm:block" />
-            <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-indigo-600 dark:from-pink-500 dark:to-purple-500">resilient infrastructure</span><br className="hidden sm:block" /> & financial tools.
+          <h1 className="text-3xl sm:text-5xl md:text-6xl lg:text-7xl font-extrabold tracking-tight text-gray-900 dark:text-white leading-[1.15] break-words">
+            Hi, I&apos;m Vichovong. <br />
+            I build <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-indigo-600 dark:from-pink-500 dark:to-purple-500">clean web apps</span> & reliable backends.
           </h1>
 
-          <p className="text-xl text-gray-600 dark:text-gray-400 max-w-xl leading-relaxed">
-            I&apos;m a {role} specializing in robust backend architecture, cloud deployments, and FinTech workflows—engineering high-concurrency systems from low-latency data layers to seamless interfaces.
+          <p className="text-lg sm:text-xl text-gray-600 dark:text-gray-400 max-w-xl leading-relaxed">
+            I&apos;m a {role.toLowerCase()} with a background in financial technology. I love creating practical web applications, dependable backend services, and interfaces people enjoy using.
           </p>
 
           <div className="flex flex-col sm:flex-row items-center gap-4 w-full sm:w-auto">
@@ -107,7 +107,7 @@ export function Hero({
            </div>
 
            {/* Floating Mobile Card */}
-           <div className="absolute -bottom-8 -left-8 lg:-left-16 w-32 sm:w-48 aspect-[9/19] rounded-2xl overflow-hidden border-4 border-white dark:border-gray-900 shadow-xl shadow-blue-500/10 dark:shadow-pink-500/10 -rotate-6 hover:rotate-0 transition-transform duration-500 z-20 bg-black">
+           <div className="absolute -bottom-4 sm:-bottom-8 left-2 sm:-left-4 lg:-left-16 w-32 sm:w-48 aspect-[9/19] rounded-2xl overflow-hidden border-4 border-white dark:border-gray-900 shadow-xl shadow-blue-500/10 dark:shadow-pink-500/10 -rotate-6 hover:rotate-0 transition-transform duration-500 z-20 bg-black">
               {project.screenshots?.[2] && (
                  <SafeImage 
                     src={project.screenshots[2]} 

@@ -66,8 +66,8 @@ export interface PortfolioData {
 export const portfolioData: PortfolioData = {
   developer: {
     name: "Nhar Vichovong",
-    role: "Software Engineer",
-    bio: "Software Engineer specializing in robust backend architecture, cloud deployments, and FinTech workflows. Experienced in designing resilient distributed systems, transactional dual-currency accounting, and modern web applications from the ground up.",
+    role: "Software Developer",
+    bio: "Software developer with a background in financial technology. I build clean, reliable backend services with Java and Spring Boot, and responsive web apps with Next.js and TypeScript.",
     email: "vichevong1@gmail.com",
     github: "https://github.com/vichevong1-coder",
     linkedin: "https://www.linkedin.com/in/viche-vong-001a84437",

@@ -28,9 +28,12 @@
 
 html {
   scroll-behavior: smooth;
+  overflow-x: clip;
+  -webkit-tap-highlight-color: transparent;
 }
 
 body {
+  overflow-x: clip;
   background-color: var(--background);
   color: var(--foreground);
   font-family: var(--font-geist-sans), system-ui, sans-serif;

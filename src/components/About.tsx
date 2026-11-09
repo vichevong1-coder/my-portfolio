@@ -21,12 +21,12 @@ interface SkillCategory {
 
 const skillCategories: SkillCategory[] = [
   {
-    title: "Backend & Systems Engineering",
+    title: "Backend & APIs",
     icon: Server,
     iconBoxClasses: "bg-blue-50 dark:bg-pink-900/30 text-blue-600 dark:text-pink-400 border-blue-100 dark:border-pink-800/50",
     badgeClasses: "bg-blue-50 hover:bg-blue-100 text-blue-700 border-blue-200/50 dark:bg-pink-950/40 dark:hover:bg-pink-900/60 dark:text-pink-300 dark:border-pink-800/40",
     skills: [
-      "Java 21 & Spring Boot",
+      "Java & Spring Boot",
       "FastAPI (Python)",
       "Node.js & Express",
       "PostgreSQL & Redis",
@@ -35,45 +35,45 @@ const skillCategories: SkillCategory[] = [
     ],
   },
   {
-    title: "FinTech & Core Systems",
+    title: "FinTech & Payments",
     icon: Landmark,
     iconBoxClasses: "bg-emerald-50 dark:bg-emerald-950/40 text-emerald-600 dark:text-emerald-400 border-emerald-100 dark:border-emerald-800/50",
     badgeClasses: "bg-emerald-50 hover:bg-emerald-100 text-emerald-700 border-emerald-200/50 dark:bg-emerald-950/40 dark:hover:bg-emerald-900/60 dark:text-emerald-300 dark:border-emerald-800/40",
     skills: [
-      "Dual-Currency Settlement (USD/KHR)",
-      "RBAC Security Models",
-      "Audit Trails & Voids",
-      "Dynamic Session States",
-      "Transaction Integrity",
-      "Pessimistic Concurrency Locking",
+      "USD / KHR Dual Currency",
+      "KHQR & Stripe Payments",
+      "Role-Based Access (RBAC)",
+      "Audit Logs & History",
+      "Transaction Safety",
+      "Table Session Management",
     ],
   },
   {
-    title: "Cloud, DevOps & Infrastructure",
+    title: "Cloud & Deployment",
     icon: Terminal,
     iconBoxClasses: "bg-purple-50 dark:bg-purple-950/40 text-purple-600 dark:text-purple-400 border-purple-100 dark:border-purple-800/50",
     badgeClasses: "bg-purple-50 hover:bg-purple-100 text-purple-700 border-purple-200/50 dark:bg-purple-950/40 dark:hover:bg-purple-900/60 dark:text-purple-300 dark:border-purple-800/40",
     skills: [
       "Docker & Nginx",
       "AWS (EC2)",
-      "Cloudflare Tunneling",
+      "Cloudflare Tunnels",
       "Flyway Migrations",
       "CI / CD Pipelines",
-      "Linux / Bash",
+      "Linux & Bash",
     ],
   },
   {
-    title: "Frontend & Mobile Development",
+    title: "Frontend & Mobile",
     icon: Layers,
     iconBoxClasses: "bg-amber-50 dark:bg-amber-950/40 text-amber-600 dark:text-amber-400 border-amber-100 dark:border-amber-800/50",
     badgeClasses: "bg-amber-50 hover:bg-amber-100 text-amber-700 border-amber-200/50 dark:bg-amber-950/40 dark:hover:bg-amber-900/60 dark:text-amber-300 dark:border-amber-800/40",
     skills: [
-      "React 19 & Next.js",
+      "React & Next.js",
       "TypeScript",
-      "Flutter (Dart)",
-      "Tailwind CSS v4",
+      "Flutter (Mobile)",
+      "Tailwind CSS",
       "TanStack Query",
-      "Radix / Shadcn UI",
+      "Responsive UI Design",
     ],
   },
 ];
@@ -125,41 +125,41 @@ export function About() {
           <span>About Me</span>
         </div>
         <h2 className="text-3xl sm:text-4xl font-bold tracking-tight text-gray-900 dark:text-white mb-4">
-          Engineering Scalable Systems from the Ground Up
+          Turning ideas into clean, dependable software
         </h2>
         <p className="text-gray-600 dark:text-gray-400 text-base sm:text-lg">
-          A background grounded in software engineering, financial technology, and real-world system deployments.
+          A bit about what I do, how I work, and what I enjoy building.
         </p>
       </div>
 
-      {/* Authentic Narrative */}
-      <div className="max-w-4xl mx-auto bg-white/70 dark:bg-gray-900/40 backdrop-blur-sm border border-gray-200/80 dark:border-white/5 rounded-2xl p-8 sm:p-10 shadow-sm mb-16 space-y-5 text-gray-600 dark:text-gray-300 leading-relaxed text-base sm:text-lg">
+      {/* Approachable Narrative */}
+      <div className="max-w-4xl mx-auto bg-white/70 dark:bg-gray-900/40 backdrop-blur-sm border border-gray-200/80 dark:border-white/5 rounded-2xl p-5 sm:p-8 md:p-10 shadow-sm mb-16 space-y-5 text-gray-600 dark:text-gray-300 leading-relaxed text-base sm:text-lg">
         <p>
-          I am an adaptable <span className="font-semibold text-gray-900 dark:text-white">Software Engineer</span> specializing in backend architecture, FinTech workflows, and resilient distributed services. Combining computer science fundamentals with academic training in Financial Technology (FinTech), I engineer systems designed to handle high operational throughput with transactional integrity.
+          I&apos;m a software developer based in Phnom Penh with a background in financial technology. Currently in my final year at <span className="font-semibold text-gray-900 dark:text-white">Acleda University of Business</span> and interning in IT support at <span className="font-semibold text-gray-900 dark:text-white">Acleda Bank</span>, I love building straightforward, working solutions for real-world needs.
         </p>
         <p>
-          My engineering breadth bridges deep backend logic (<span className="font-semibold text-gray-900 dark:text-white">Java 21, Spring Boot, PostgreSQL</span>) with modern web interfaces (<span className="font-semibold text-gray-900 dark:text-white">React, Next.js, TypeScript</span>). In my flagship restaurant ordering & POS system, I implemented pessimistic concurrency locking for multi-guest sessions, dual-currency (USD/KHR) cash reconciliation, and zero-trust cloud tunneling.
+          My day-to-day focus spans both ends of the stack. On the backend, I write clean APIs and reliable database models using <span className="font-semibold text-gray-900 dark:text-white">Java, Spring Boot, and PostgreSQL</span>. On the frontend, I build fast, responsive interfaces with <span className="font-semibold text-gray-900 dark:text-white">React, Next.js, and TypeScript</span>.
         </p>
         <p>
-          From enterprise banking IT infrastructure at <span className="font-semibold text-gray-900 dark:text-white">Acleda Bank</span> to building production-ready web platforms, I focus on solving complex business challenges with robust, maintainable architecture.
+          Whether I&apos;m developing a QR ordering platform for restaurants, working through multi-currency cash flows, or configuring Docker services, I care most about writing readable code, keeping deployments simple, and building apps people genuinely find easy to use.
         </p>
 
         <div className="pt-5 border-t border-gray-200/60 dark:border-gray-800/60 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3 text-sm font-medium text-gray-800 dark:text-gray-200">
           <div className="flex items-center gap-2">
             <CheckCircle2 className="w-4 h-4 text-emerald-500 shrink-0" />
-            <span>Transactional Concurrency</span>
+            <span>Clean Backend APIs</span>
           </div>
           <div className="flex items-center gap-2">
             <CheckCircle2 className="w-4 h-4 text-emerald-500 shrink-0" />
-            <span>FinTech & Dual-Currency</span>
+            <span>Multi-Currency & Payments</span>
           </div>
           <div className="flex items-center gap-2">
             <CheckCircle2 className="w-4 h-4 text-emerald-500 shrink-0" />
-            <span>Cloud & Resilient Ingress</span>
+            <span>Docker & Cloud Setup</span>
           </div>
           <div className="flex items-center gap-2">
             <CheckCircle2 className="w-4 h-4 text-emerald-500 shrink-0" />
-            <span>Modern Web & Systems UX</span>
+            <span>Modern Web & Mobile UI</span>
           </div>
         </div>
       </div>
@@ -175,7 +175,7 @@ export function About() {
             Education & Experience
           </h3>
           <p className="text-gray-600 dark:text-gray-400 text-sm sm:text-base mt-2">
-            Bridging formal financial technology studies with real-world enterprise banking IT operations.
+            My academic foundation in FinTech alongside practical IT experience at Acleda Bank.
           </p>
         </div>
 
@@ -243,10 +243,10 @@ export function About() {
             <span>Technical Capabilities</span>
           </div>
           <h3 className="text-2xl sm:text-3xl font-bold tracking-tight text-gray-900 dark:text-white">
-            Skills & Core Disciplines
+            Skills & Technologies
           </h3>
           <p className="text-gray-600 dark:text-gray-400 text-sm sm:text-base mt-2">
-            Technical proficiencies spanning backend architecture, financial systems, DevOps, and modern frontend.
+            Tools and languages I use to build full-stack applications.
           </p>
         </div>
 
